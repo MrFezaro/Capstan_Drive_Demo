@@ -49,7 +49,6 @@ void setup() {
 
     command.add('T', doTarget, "target angle (rad)");
     command.add('L', doLimit,  "voltage limit");
-    command.add('V', doLimitVelocity, "velocity limit")
 
     Serial.println("Motor ready!");
 }
