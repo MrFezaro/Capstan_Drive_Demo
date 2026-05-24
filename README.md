@@ -1,19 +1,20 @@
 # Capstan Drive Demo
 
-A proof-of-concept capstan drive actuator using a BLDC motor and [SimpleFOC](https://simplefoc.com/). Built to explore low-backlash, quiet actuation for robotic joints using a rope transmission.
+A proof-of-concept capstan drive actuator using a BLDC motor and [SimpleFOC](https://simplefoc.com/). Built to explore diy cheap low-backlash, quiet actuation for robotic joints using a rope transmission.
 
-> **Demo video:** [link]
+**Demo video:** [[https://youtu.be/7aMmL1JBfC8](https://youtu.be/u-Q9J3HXe5o)]
 
 ---
 
 ## Design
 
-The capstan uses a **D:d ratio of [X:1]** with **[N] turns** of 3mm PE fishing rope.
+The capstan uses a D:d ratio of 5 with 5 turns of 3mm PE fishing rope.
 
 **Results:**
 - Very quiet operation compared to geared alternatives
 - Near-zero backlash
 - The PE rope stretched noticeably under load. HMPE (Dyneema) or Vectran braid is recommended for anything beyond a demo
+- Either higher tension or turns of rope to increase the friction so it doesn't slip
 - The closed-loop sketch works but doesn't get the full performance out of the SimpleFOC Mini. This is a code implementation issue, not a PID tuning issue
 
 ---
@@ -99,7 +100,7 @@ After homing: `T0` = stop 1, `T90` = centre, `T180` = stop 2.
 
 - **Rope material matters.** PE fishing rope is easy to rig but creeps under load. HMPE/Dyneema gives much better stiffness and near-zero elongation.
 - **D:d ratio** sets both the torque multiplication and the minimum wraps needed to prevent slip. More wraps add friction along the rope path.
-- **Teensy 4.0 + SimpleFOC Mini.** The hardware is capable but the current implementation doesn't fully utilise the driver. Getting the most out of it needs tighter loop timing and better output scaling.
+- **Teensy 4.0 + SimpleFOC Mini.** The hardware is capable but the current implementation doesn't fully utilize the driver. Getting the most out of it needs tighter loop timing and better output scaling.
 - **Encoder index.** On this setup, enabling the index pin breaks `initFOC`. Skipping it and hardcoding the calibration result after the first run is the practical workaround.
 
 ---
@@ -110,9 +111,3 @@ After homing: `T0` = stop 1, `T90` = centre, `T180` = stop 2.
 - [SimpleFOC angle loop](https://docs.simplefoc.com/angle_loop)
 - [SimpleFOC Mini docs](https://docs.simplefoc.com/simplefocmini)
 - [SimpleFOC Commander interface](https://docs.simplefoc.com/commander_interface)
-
----
-
-## License
-
-MIT
