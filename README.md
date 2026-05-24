@@ -8,7 +8,7 @@ A proof-of-concept capstan drive actuator using a BLDC motor and [SimpleFOC](htt
 
 ## Design
 
-The capstan uses a D:d ratio of 5 with 5 turns of 3mm PE fishing rope.
+The capstan uses a D:d ratio of 5 with 3 turns of 3mm PE fishing rope.
 
 **Results:**
 - Very quiet operation compared to geared alternatives
